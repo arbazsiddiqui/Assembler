@@ -1,0 +1,112 @@
+#include <stdio.h>
+void main(void) {
+	FILE *finp,*fout,*fopcode,*freg,*fhex,*fh;
+	char inp[17], op[17], ch;
+	int o,r,h,i,count=0,lineno=0;
+	finp = fopen("Input.txt", "r");
+	fout = fopen("Output.txt", "w");
+	fopcode = fopen("opcodes.txt", "r");
+	freg = fopen("register.txt", "r");
+	fhex = fopen("hex2bin.txt", "r");
+	if((!finp)||(!fout)||(!fopcode)||(!freg)||(!fhex)) return;
+	while(1){
+		rewind(fopcode);
+		rewind(freg);
+		rewind(fhex);
+		fscanf(finp,"%s",inp);
+		if(strcasecmp(inp,"XX")==0)
+		{
+			break;
+		}
+		printf("%s\n",inp);
+		
+		while(1) {
+			fscanf(fopcode,"%s",op);
+			if(strcasecmp(op,"XX")==0)
+			{
+				break;
+			}
+			if(strcasecmp(inp,op)==0) {
+				fscanf(fopcode,"%s",op);
+				fprintf(fout,"\n%s",op);
+				o=1; break;
+			} else {
+				fscanf(fopcode,"%s",op);
+				o=0;
+			}
+		}
+		if(o==1)
+			lineno++;
+		int len=strlen(inp);
+		if( inp[len-1] == ':' )
+		{	
+			o=1;
+			fprintf(fout,"\n1111111111111000");
+		}
+		while(1) {
+			fscanf(freg,"%s",op);
+			if(strcasecmp(op,"XX")==0)
+			{
+				break;
+			}			
+			if(strcasecmp(inp,op)==0) {
+				fscanf(freg,"%s",op);
+				fprintf(fout," %s",op);
+				r=1; break;
+			} else {
+				fscanf(freg,"%s",op);
+				r=0;
+			}
+		}
+		while(1) {
+			fscanf(fhex,"%s",op);
+			if(strcasecmp(op,"XX")==0)
+			{
+				break;
+			}
+			if(strcasecmp(inp,op)==0) {
+				fscanf(fhex,"%s",op);
+				fprintf(fout," %s",op);
+				h=1; break;
+			} else {
+				fscanf(fhex,"%s",op);
+				h=0;
+			}
+		}
+		
+		if(!o && !r && !h) {
+			lineno++;			
+			printf("\n'%s' is an Invalid Instruction/Register/Value at line %d",inp,lineno);
+			fprintf(fout," '%s",inp);
+			count++;
+			printf("\n\nPress\n1 for help\n2 for continue\n3 for exit");
+			scanf("%d",&i);
+			if(i==1)
+			{			
+				
+				fh=fopen("help.txt", "r");
+				while(1)
+   				{
+     					ch = fgetc(fh);
+      					if( feof(fh) )
+      					{
+          					break ;
+      					}
+      					printf("%c", ch);
+   				}
+				fclose(fh);
+			}
+			else if(i==2)
+				continue;
+			else
+				break;
+		}
+}
+	fclose(finp);
+	fclose(fout);
+	fclose(fopcode);
+	fclose(freg);
+	fclose(fhex);
+	printf("\nTask Successfully done! and Total Number of errors = %d\n\n",count);
+    return;
+}

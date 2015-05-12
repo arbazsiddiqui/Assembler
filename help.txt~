@@ -1,0 +1,12 @@
+ADD 0000 : add r1 and r2 and store in r3
+SUB 0001 : sub r1 and r2 and store in r3
+MUL 0010 : mul r1 and r2 and store in r3
+DIV 0011 : div r1 and r2 and store in r3
+REM 0100 : find remainder of r1/r2 and store in r3
+AND 0101 : find and of r1 and r2 and store in r3
+OR 0110 : find or of r1 and r2 and store in r3
+XOR 0111 : find xor of r1 and r2 and store in r3
+NAND 1000 : find nand of r1 and r2 and store in r3
+NOR 1001 : find nor of r1 and r2 and store in r3
+POW 1010 : find pow of r1 and r2 and store in r3
+XX

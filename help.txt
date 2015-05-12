@@ -1,0 +1,41 @@
+ADD 0000 : Add R2 and R3 and store in R1
+ADF 0001: Add R2 and R3 and store in R1
+SUB 0010 : Sub R2 and R3 and store in R1
+SUF 0011 : Sub R2 and R3 and store in R1
+MUL 0100 : Multiply R2 and R3 and store in R1
+MUF 0101 : Multiply R2 and R3 and store in R1
+DIV 0110 : Divide R2 and R3 and store in R1
+DIF 0111 : Divide R2 and R3 and store in R1
+AND 1000 : AND operation on R2 and R3 and store in R1
+OR 1001 : OR operation on R2 and R3 and store in R1
+XOR 1010 : XOR operation on R2 and R3 and store in R1
+XNOR 1011 : XNOR operation R2 and R3 and store in R1
+MOD 1100 : Mod R2 and R3 and store in R1
+RSH 1101 : Right shift R2 by value and store in R1
+LSH 1110 : Left Shift R2 by value and store in R1
+NOT 11110000 : Not R2 and store in R1
+REC 11110001 : Resiprocal R2 and store in R2
+MOV 11110010 : Move R2 and store in R1
+MVV 11110011 : Move value and store in R1
+RTR 11110100 : Rotate right R2 and store in R1
+RTL 11110101 : Rotate left R2 and store in R1
+STR 11110110 : Store in R1
+JZ 111111110000 : Jump if zero flag is zero 
+JNZ 1111111110001 : Jump if not zero flag zero
+JC 111111110010 : Jump if carry 
+JNC 111111110011 : Jump if not carry 
+INC 111111110100 : Increment R1 by 1
+DEC 111111110101 : Decrement R1 by 1
+PUSH 111111110110 : Push R1
+POP 111111110111 : Pop R1
+CZ 111111111000 : Call if zero flag is zero
+CNZ 111111111001 : Call if not zero flag zero
+CC 111111111010 : Call if carry
+CNC 111111111011 : Call if not carry
+RET 1111111111110000 : Return 
+RC 1111111111110001 : Return if carry 
+RNC 1111111111110010 : Return if not carry
+RZ 1111111111110011 : Return if zero flag is zero 
+RNZ 1111111111110100 : Return if zero flag is not zero
+HLT 1111111111110101 : HALT
+XXD
